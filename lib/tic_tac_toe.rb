@@ -22,8 +22,6 @@ def valid_move?(board, index)
   end
 end
 
-
-
 #Helper method meant to check if the position on the board is currently taken, used by valid_move?
 def position_taken?(board, index)
   if board[index] == "" || board[index] == " " || board[index] == nil
@@ -33,10 +31,7 @@ def position_taken?(board, index)
   end
 end
 
-
-
 #Changes the board array to reflect a valid input provided by the player by updating an index within the array with the player token (character argument, initially defined here)
-
 def move(board, index, character = "X")
   board[index] = character
 end
