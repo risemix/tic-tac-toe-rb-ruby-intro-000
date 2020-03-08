@@ -58,9 +58,7 @@ def play(board)
   end
 end
 
-
 #Determines the turn count by iterating on the board array and adding to a counter for each instance of X or O
-
 def turn_count(board)
   counter = 0
   board.each {|space|
@@ -71,9 +69,7 @@ def turn_count(board)
   counter
 end
 
-
 #Determines the current player (X or O) by determining if the current turn_count is divisible by 2.  Even numbered turns are naturally X while odd-numbered turns are naturally O, as X goes first.
-
 def current_player(board)
   if turn_count(board) % 2 == 0
     return "X"
@@ -82,17 +78,7 @@ def current_player(board)
   end
 end
 
-
-
-#Array containing all spaces on the board indexed 0-8
-
-board = [“ “, “ “, “ “, “ “, “ “, “ “, “ “, “ “, “ “]
-
-
-
-
 #Nested array containing all possible win combinations.  The numbers are indices of the board array.
-
 WIN_COMBINATIONS = [
   [0, 1, 2], #Top row
   [3, 4, 5], #Middle row
@@ -104,11 +90,7 @@ WIN_COMBINATIONS = [
   [2, 4, 6], #Diagonal 2
 ]
 
-
-
 #Iterates over WIN_COMBINATIONS using a new array to determine if there are 3 matching tokens in winning positions.
-
-
 def won?(board)
   WIN_COMBINATIONS.each do |wincombo|
     if board[wincombo[0]] == "X" && board[wincombo[1]] == "X" && board[wincombo[2]] == "X"
@@ -120,10 +102,7 @@ def won?(board)
   return false
 end
 
-
-
 #Checks the board for any nil or “ “ in indices.  If there is, the board is not full and thus “false” is returned.
-
 def full?(board)
   if board.any? {|index| index == nil || index == " "}
     return false
@@ -132,11 +111,8 @@ def full?(board)
   end
 end
 
-
-
 #If full?(board) is true and won?(board) is determined to be false, that means there must be a draw.  Otherwise, there is no draw.
 #Note that a board that isn’t full and a game that is not won must be specifically designated as false.
-
 def draw?(board)
   if full?(board) && !won?(board)
     return true
@@ -147,10 +123,7 @@ def draw?(board)
   end
 end
 
-
-
 #Checks to see if anyone has won OR if the board is full.  In both cases, this method ends the game.
-
 def over?(board)
   if won?(board) || full?(board)
     return true
@@ -159,10 +132,7 @@ def over?(board)
   end
 end
 
-
-#If the won? method is given a true outcome, then it returns index 0 after it is run through the won? method,
-#which is necessarily the winning token (X or O).
-
+#If the won? method is given a true outcome, then it returns index 0 after it is run through the won? method, which is necessarily the winning token (X or O).
 def winner(board)
   if won?(board)
     return board[won?(board)[0]]
