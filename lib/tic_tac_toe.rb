@@ -8,18 +8,12 @@ def display_board(board)
   puts "-----------"
 end
 
-
-
 #Converts input from player to valid array index (0-8)
-
 def input_to_index(input)
   input.to_i - 1
 end
 
-
-
 #Checks to see if move is valid by passing the board and index through position_taken? and reconciling their selection with valid array indices
-
 def valid_move?(board, index)
   if !position_taken?(board, index) && (index).between?(0,8)
     return true
@@ -31,7 +25,6 @@ end
 
 
 #Helper method meant to check if the position on the board is currently taken, used by valid_move?
-
 def position_taken?(board, index)
   if board[index] == "" || board[index] == " " || board[index] == nil
     return false
