@@ -36,10 +36,7 @@ def move(board, index, character = "X")
   board[index] = character
 end
 
-
-
 #What happens when the player takes a turn; if the player makes a valid input (is within board index 0-8 and the space is not taken by another X) then it will update the array with the player’s intended action.  If not, it will request another turn.
-
 def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
@@ -52,9 +49,7 @@ def turn(board)
   end
 end
 
-
 #Initiates 9 turns of play()
-
 def play(board)
   turns = 0
   until turns == 9
