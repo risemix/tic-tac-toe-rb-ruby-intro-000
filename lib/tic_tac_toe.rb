@@ -177,7 +177,7 @@ def over?(board)
 end
 
 
-#If the won? method is given a true outcome, then it returns index 0 after it is run through the won? method, 
+#If the won? method is given a true outcome, then it returns index 0 after it is run through the won? method,
 #which is necessarily the winning token (X or O).
 
 def winner(board)
